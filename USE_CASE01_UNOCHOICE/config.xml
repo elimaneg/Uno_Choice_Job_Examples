@@ -1,0 +1,134 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>A use case for the requirement to update an Uno-Choice control when more than one UI parameters&#xd;
+get updated</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>PARAM01_METADATA</name>
+          <description>PARAMETER-01: Select one of the available analysis files &lt;p&gt;These choice options can be from any choice type control including RUN PARAMETER type or another Uno-Choice.</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>AnalysisMeta01</string>
+              <string>AnalysisMeta02</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>PARAM02_TYPE</name>
+          <description>PARAMETER-02: Select one of the available property keys &lt;p&gt;These choice options can be from any choice type control including RUN PARAMETER type or another Uno-Choice.</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>measures</string>
+              <string>metadata</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <org.biouno.unochoice.ChoiceParameterDefinition plugin="uno-choice@1.0-SNAPSHOT">
+          <name>UNO_CHOISE_01_measures</name>
+          <description>The UNO-CHOICE control. Should be updated when PARAM01 or PARAM02 get updated.&lt;p&gt;
+Currently displays the options when:&lt;p&gt;
+PARAM01_METADATA=AnalysisMeta01&lt;p&gt;
+PARAM02_TYPE=measures</description>
+          <uuid>6d807b45-5b38-495f-bf6b-eb5632992a8f</uuid>
+          <script>def param01_metadata=&apos;AnalysisMeta01&apos;
+def param02_type=&apos;measures&apos;
+def propFile=&quot;${param01_metadata}.properties&quot;
+def propKey= param02_type
+def propAddress=&quot;http://localhost:8080/userContent/$propFile&quot;
+
+def props= new Properties()
+props.load(new URL(propAddress).openStream())
+def choices=[]
+    props.get(propKey).split(&quot;,&quot;).each{
+      choices.add(it)
+        }
+return choices</script>
+          <choiceType>PT_MULTI_SELECT</choiceType>
+        </org.biouno.unochoice.ChoiceParameterDefinition>
+        <org.biouno.unochoice.ChoiceParameterDefinition plugin="uno-choice@1.0-SNAPSHOT">
+          <name>UNO_CHOISE_02_measures</name>
+          <description>The UNO-CHOICE control. Should be updated when PARAM01 or PARAM02 get updated.&lt;p&gt;
+Currently displays the options when:&lt;p&gt;
+PARAM01_METADATA=AnalysisMeta02&lt;p&gt;
+PARAM02_TYPE=measures</description>
+          <uuid>d83b9309-46a0-4972-8d46-f6d91562cb6e</uuid>
+          <script>def param01_metadata=&apos;AnalysisMeta02&apos;
+def param02_type=&apos;measures&apos;
+def propFile=&quot;${param01_metadata}.properties&quot;
+def propKey= param02_type
+def propAddress=&quot;http://localhost:8080/userContent/$propFile&quot;
+
+def props= new Properties()
+props.load(new URL(propAddress).openStream())
+def choices=[]
+    props.get(propKey).split(&quot;,&quot;).each{
+      choices.add(it)
+        }
+return choices</script>
+          <choiceType>PT_MULTI_SELECT</choiceType>
+        </org.biouno.unochoice.ChoiceParameterDefinition>
+        <org.biouno.unochoice.ChoiceParameterDefinition plugin="uno-choice@1.0-SNAPSHOT">
+          <name>UNO_CHOISE_01_metadata</name>
+          <description>The UNO-CHOICE control. Should be updated when PARAM01 or PARAM02 get updated.&lt;p&gt;
+Currently displays the options when:&lt;p&gt;
+PARAM01_METADATA=AnalysisMeta01&lt;p&gt;
+PARAM02_TYPE=metadata</description>
+          <uuid>de5f6a2d-94ee-4e69-b376-5e9172988bbf</uuid>
+          <script>def param01_metadata=&apos;AnalysisMeta01&apos;
+def param02_type=&apos;metadata&apos;
+def propFile=&quot;${param01_metadata}.properties&quot;
+def propKey= param02_type
+def propAddress=&quot;http://localhost:8080/userContent/$propFile&quot;
+
+def props= new Properties()
+props.load(new URL(propAddress).openStream())
+def choices=[]
+    props.get(propKey).split(&quot;,&quot;).each{
+      choices.add(it)
+        }
+return choices</script>
+          <choiceType>PT_MULTI_SELECT</choiceType>
+        </org.biouno.unochoice.ChoiceParameterDefinition>
+        <org.biouno.unochoice.ChoiceParameterDefinition plugin="uno-choice@1.0-SNAPSHOT">
+          <name>UNO_CHOISE_02_metadata</name>
+          <description>The UNO-CHOICE control. Should be updated when PARAM01 or PARAM02 get updated.&lt;p&gt;
+Currently displays the options when:&lt;p&gt;
+PARAM01_METADATA=AnalysisMeta02&lt;p&gt;
+PARAM02_TYPE=metadata</description>
+          <uuid>7fc0eb7f-ca8b-4193-9f11-73a05423a3e2</uuid>
+          <script>def param01_metadata=&apos;AnalysisMeta02&apos;
+def param02_type=&apos;metadata&apos;
+def propFile=&quot;${param01_metadata}.properties&quot;
+def propKey= param02_type
+def propAddress=&quot;http://localhost:8080/userContent/$propFile&quot;
+
+def props= new Properties()
+props.load(new URL(propAddress).openStream())
+def choices=[]
+    props.get(propKey).split(&quot;,&quot;).each{
+      choices.add(it)
+        }
+return choices</script>
+          <choiceType>PT_MULTI_SELECT</choiceType>
+        </org.biouno.unochoice.ChoiceParameterDefinition>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.20">
+      <autoRebuild>false</autoRebuild>
+    </com.sonyericsson.rebuild.RebuildSettings>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders/>
+  <publishers/>
+  <buildWrappers/>
+</project>
