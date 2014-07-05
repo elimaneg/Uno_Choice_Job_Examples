@@ -6,4 +6,5 @@
 
 You should see two choice controls and four uno-choice controls. 
 
-The four uno-choice controls should display four different set of choices simulating the 2x2 combinations of the two choice controls. Once cascading updates have been implemented for the uno-choice control we should be able to have a single uno-choice control generating all of the four choice options with combinations of the PARAM01_METADATA and PARAM02_TYPE build parameters.
+The four uno-choice controls should display four different set of choices simulating the 2x2 combinations of the two choice controls. 
+Once **cascading updates** have been implemented for the uno-choice control we should be able to have a single uno-choice control generating all of the four choice options with combinations of the PARAM01_METADATA and PARAM02_TYPE build parameters.
