@@ -1,7 +1,7 @@
-1. Copy the <USE_CASE01_UNOCHOICE> folder in the Jenkins <jobs> folder
-2. Copy the contents of the <userContent> folder in the JENKINS_HOME\userContent folder
-3. Install the uno-choice jenkins plugin
-4. <Reload> the Jenkins configuration to load the new <USE_CASE01_UNOCHOICE> project
+1. **Install** the uno-choice Jenkins plugin
+2. **Copy** the USE_CASE01_UNOCHOICE folder in the JENKINS_HOME\jobs folder
+3. **Copy** the contents of the userContent folder in the JENKINS_HOME\userContent folder
+4. **Reload** the Jenkins configuration to load the new USE_CASE01_UNOCHOICE project
 5. Build the project with parameters
 
 You should see two choice controls and four uno-choice controls. 
