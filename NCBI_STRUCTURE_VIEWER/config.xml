@@ -1,0 +1,56 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>Enter a Structure Identifier to review the structure</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <hudson.model.ParametersDefinitionProperty>
+      <parameterDefinitions>
+        <hudson.model.StringParameterDefinition>
+          <name>WHAT_IS_THIS</name>
+          <description>The UC_COMPOUND_STRUCTURE widget is rendered using the Uno-Choice Reference parameter. 
+&lt;p&gt;This parameter  uses a groovy script to return arbitrary HTML (an iframe in this case) that is displayed.
+&lt;p&gt;Note how the &lt;b&gt;CID parameter is referenced dynamically&lt;/b&gt; by the Uno-Choice control</description>
+          <defaultValue>Demonstration of an Uno-Choice Reference parameter</defaultValue>
+        </hudson.model.StringParameterDefinition>
+        <hudson.model.ChoiceParameterDefinition>
+          <name>CID</name>
+          <description>NCBI Compound ID</description>
+          <choices class="java.util.Arrays$ArrayList">
+            <a class="string-array">
+              <string>666866</string>
+              <string>993248</string>
+              <string>2385333</string>
+              <string>5309813</string>
+              <string>2377047</string>
+            </a>
+          </choices>
+        </hudson.model.ChoiceParameterDefinition>
+        <org.biouno.unochoice.DynamicReferenceParameter plugin="uno-choice@0.13">
+          <name>UC_COMPOUND_STRUCTURE</name>
+          <description>http://pubchem.ncbi.nlm.nih.gov/image/fl.html?cid=666866</description>
+          <uuid>e61cf02c-4738-43dd-80ab-13fb31c63a99</uuid>
+          <script>def URL=&quot;http://pubchem.ncbi.nlm.nih.gov/image/fl.html?cid=$CID&quot;
+return &quot;&lt;iframe src=\&quot;$URL\&quot; height=600 width=600&gt;&lt;/iframe&gt;&quot;</script>
+          <elementType>ET_FORMATTED_HTML</elementType>
+          <includes></includes>
+          <referencedParameters>CID</referencedParameters>
+          <parameters/>
+        </org.biouno.unochoice.DynamicReferenceParameter>
+      </parameterDefinitions>
+    </hudson.model.ParametersDefinitionProperty>
+    <com.sonyericsson.rebuild.RebuildSettings plugin="rebuild@1.21">
+      <autoRebuild>false</autoRebuild>
+    </com.sonyericsson.rebuild.RebuildSettings>
+  </properties>
+  <scm class="hudson.scm.NullSCM"/>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers/>
+  <concurrentBuild>false</concurrentBuild>
+  <builders/>
+  <publishers/>
+  <buildWrappers/>
+</project>
